@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunita | Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #1a202c;
+            --text-color: #f7fafc;
+            --primary-color: #63b3ed;
+            --secondary-color: #a0aec0;
+            --card-bg: #2d3748;
+            --border-radius: 0.75rem;
+        }
+
+        :root {
+            --background-color: #f8f9fa;
+            --text-color: #343a40;
+            --card-bg-color: #fff;
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --dark-text-color: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Heading gradient changed to a professional blue-purple */
+            --heading-gradient: linear-gradient(45deg, #007BFF, #6f42c1);
+        }
+
+        body.dark-mode {
+            --background-color: #1a1a1a;
+            --text-color: #f8f9fa;
+            --card-bg-color: #2c2c2c;
+            --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            /* Dark mode heading gradient changed for better contrast */
+            --heading-gradient: linear-gradient(45deg, #4a90e2, #a850f2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+            position: relative;
+            /* For background canvas */
+        }
+
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* --- Global Styles --- */
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+            background-image: var(--heading-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--dark-text-color);
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: background-color 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #5a6268;
+        }
+
+        .btn-sm {
+            padding: 8px 16px;
+            font-size: 0.9rem;
+        }
+
+        /* --- Homepage Section --- */
+        .homepage-section {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: var(--dark-text-color);
+            position: relative;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        /* Abstract background animation */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            list-style: none;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #FFC0CB, #DA70D6, #FFD700);
+            animation: animate 25s linear infinite;
+        }
+
+        .animated-bg span:nth-child(1) {
+            left: 25%;
+            width: 80px;
+            height: 80px;
+            animation-delay: 0s;
+        }
+
+        .animated-bg span:nth-child(2) {
+            left: 10%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 2s;
+            animation-duration: 12s;
+        }
+
+        .animated-bg span:nth-child(3) {
+            left: 70%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 4s;
+        }
+
+        .animated-bg span:nth-child(4) {
+            left: 40%;
+            width: 60px;
+            height: 60px;
+            animation-delay: 0s;
+            animation-duration: 18s;
+        }
+
+        .animated-bg span:nth-child(5) {
+            left: 65%;
+            width: 20px;
+            height: 20px;
+            animation-delay: 0s;
+        }
+
+        .animated-bg span:nth-child(6) {
+            left: 75%;
+            width: 110px;
+            height: 110px;
+            animation-delay: 3s;
+        }
+
+        .animated-bg span:nth-child(7) {
+            left: 35%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 7s;
+        }
+
+        .animated-bg span:nth-child(8) {
+            left: 50%;
+            width: 25px;
+            height: 25px;
+            animation-delay: 15s;
+            animation-duration: 45s;
+        }
+
+        .animated-bg span:nth-child(9) {
+            left: 20%;
+            width: 15px;
+            height: 15px;
+            animation-delay: 2s;
+            animation-duration: 35s;
+        }
+
+        .animated-bg span:nth-child(10) {
+            left: 85%;
+            width: 150px;
+            height: 150px;
+            animation-delay: 0s;
+            animation-duration: 11s;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.5;
+                border-radius: 0;
+            }
+
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        .homepage-content {
+            z-index: 1;
+        }
+
+        .homepage-content h1 {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+
+        .homepage-content p {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .animated-text {
+            background-image: var(--heading-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fade-in-out 3s infinite;
+        }
+
+        @keyframes fade-in-out {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+        }
+
+        .animated-subtitle {
+            background-image: var(--heading-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slide-up-and-pop 2s infinite ease-in-out;
+        }
+
+        @keyframes slide-up-and-pop {
+            0% {
+                transform: translateY(20px) scale(0.8);
+                opacity: 0;
+            }
+
+            50% {
+                transform: translateY(0) scale(1.1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+
+        /* --- Navbar --- */
+        header {
+            background-color: var(--card-bg-color);
+            box-shadow: var(--box-shadow);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        #navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .right-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            color: var(--primary-color);
+        }
+
+        /* New Home Button Style */
+        .home-btn {
+            background-color: transparent;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin-right: 15px;
+            /* Space between the button and logo */
+        }
+
+        .home-btn:hover {
+            background-color: rgba(0, 123, 255, 0.1);
+            color: var(--primary-color);
+        }
+
+        body.dark-mode .home-btn:hover {
+            background-color: rgba(74, 144, 226, 0.1);
+        }
+
+        /* Main Content Background Image - होम पेज के बाद आने वाले सेक्शंस के लिए बैकग्राउंड इमेज */
+        #main-content {
+            background-image: url('');
+            /* अपनी इमेज का URL यहाँ बदलें */
+            background-size: cover;
+            background-attachment: fixed;
+            /* Parallax effect के लिए */
+            background-position: center;
+        }
+
+        /* --- Sections --- */
+        /* Animation-specific styles for sections after the hero section */
+        .animated-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Animation class to trigger */
+        .animated-section.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.dark-mode .animated-section {
+            background-color: rgba(44, 44, 44, 0.8);
+        }
+
+        /* Hero Section styles */
+        .hero-section {
+            padding: 80px 5%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 120px;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+
+        body.dark-mode .hero-section {
+            background-color: rgba(44, 44, 44, 0.8);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            background-image: var(--heading-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content h2 {
+            font-size: 1.5rem;
+            background-image: var(--heading-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            margin-bottom: 30px;
+        }
+
+        .hero-image img {
+            width: 400px;
+            height: 555px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: var(--box-shadow);
+            transition: opacity 0.5s ease-in-out; /* इमेज बदलने के लिए ट्रांज़िशन */
+        }
+
+        /* --- About Section --- */
+        .about-section {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* About Section Background Animation */
+        .about-section::before,
+        .about-section::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0));
+            animation: subtle-fade 15s infinite ease-in-out;
+            z-index: 0;
+        }
+
+        body.dark-mode .about-section::before,
+        body.dark-mode .about-section::after {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        }
+
+        .about-section::before {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: -10%;
+            animation-delay: 2s;
+        }
+
+        .about-section::after {
+            width: 150px;
+            height: 150px;
+            bottom: 5%;
+            right: -10%;
+            animation-delay: 5s;
+        }
+
+        @keyframes subtle-fade {
+
+            0%,
+            100% {
+                transform: scale(0.8) translateY(10px);
+                opacity: 0.5;
+            }
+
+            50% {
+                transform: scale(1.1) translateY(-10px);
+                opacity: 0.8;
+            }
+        }
+
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1200px;
+            margin-top: 40px;
+            z-index: 1;
+            position: relative;
+            /* About सेक्शन के लिए नया एनीमेशन */
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        /* जब अबाउट सेक्शन दिखाई देगा तो यह एनिमेट होगा */
+        .about-container.animate {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .about-image img {
+            max-width: 200px; /* Pehle 400px tha, ab 200px hai */
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        /* --- Skills Section --- */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin-top: 40px;
+        }
+
+        .skill-card {
+            padding: 30px 20px;
+            border-radius: var(--border-radius);
+            color: var(--dark-text-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--box-shadow);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Skill Card Colors */
+        .skill-card.html {
+            background-color: #E44D26;
+        }
+
+        .skill-card.css {
+            background-color: #264DE4;
+        }
+
+        .skill-card.javascript {
+            background-color: #F0DB4F;
+            color: #333;
+        }
+
+        .skill-card.react {
+            background-color: #61DAFB;
+            color: #333;
+        }
+
+        .skill-card.mysql {
+            background-color: #00758F;
+        }
+
+        .skill-card.mongodb {
+            background-color: #4DB33D;
+        }
+
+        /* Soft Skills Colors */
+        .skill-card.timemanagement {
+            background-color: #FF5733;
+        }
+
+        .skill-card.problemsolving {
+            background-color: #337AFF;
+        }
+
+        .skill-card.communication {
+            background-color: #33FF57;
+        }
+
+        .skill-card.leadership {
+            background-color: #AF33FF;
+        }
+
+        /* --- Projects Section --- */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background-color: var(--card-bg-color);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-card h3 {
+            padding: 20px 20px 10px;
+        }
+
+        .project-card p {
+            padding: 0 20px 20px;
+            color: var(--text-color);
+        }
+
+        body.dark-mode .project-card p {
+            color: #ccc;
+        }
+
+
+        .project-buttons {
+            padding: 0 20px 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        /* --- Experience & Education Timelines --- */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 10px 0;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 30px;
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 30px;
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: var(--card-bg-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .timeline-content p {
+            margin: 5px 0;
+        }
+
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin-top: 40px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 10px 0;
+            position: relative;
+            width: 50%;
+        }
+
+        .timeline-item:nth-child(odd) {
+            padding-right: 30px;
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            padding-left: 30px;
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: var(--card-bg-color);
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+
+        .timeline-content h3 {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+
+        .timeline-content p {
+            margin: 5px 0;
+        }
+
+        /* --- Contact Section --- */
+        .contact-section {
+            width: 100%;
+            padding: 80px 5%;
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto 0;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            padding: 12px;
+            border: 1px solid var(--text-color);
+            border-radius: var(--border-radius);
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        body.dark-mode .contact-form input,
+        body.dark-mode .contact-form textarea {
+            border-color: #555;
+            background-color: #333;
+            color: #f8f9fa;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icon {
+            font-size: 1rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .social-icon i {
+            font-size: 1.5rem;
+            margin-right: 8px;
+        }
+
+        .social-icon:hover {
+            color: #0056b3;
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            background-color: var(--card-bg-color);
+            color: var(--text-color);
+            margin-top: 40px;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        body.dark-mode footer {
+            background-color: #2c2c2c;
+            color: #f8f9fa;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* --- Responsive Design --- */
+        @media (max-width: 768px) {
+            .hero-section {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-image {
+                margin-bottom: 30px;
+            }
+
+            .about-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-image img {
+                max-width: 100%;
+            }
+
+            #navbar .nav-links {
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background-color: var(--card-bg-color);
+                width: 100%;
+                padding: 20px 0;
+                transform: translateY(-120%);
+                transition: transform 0.3s ease-in-out;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            #navbar .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-links li {
+                margin: 10px 0;
+                text-align: center;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .timeline::before {
+                left: 10px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 30px;
+                left: 0 !important;
+                text-align: left !important;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 5px;
+                right: auto;
+            }
+
+            #navbar .right-nav {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Home Page with View More Button -->
+    <section id="homepage" class="homepage-section">
+        <div class="animated-bg">
+
+        </div>
+        <div class="homepage-content">
+            <h1 class="animated-text"> Web Developer Portfolio</h1>
+            <p class="animated-subtitle">Frontend Developer | Web Developer</p>
+            <button id="viewMoreBtn" class="btn">View More</button>
+        </div>
+    </section>
+
+    <!-- Main Content Sections (Initially hidden) -->
+    <main id="main-content" class="hidden">
+        <!-- Header & Navbar -->
+        <header>
+            <nav id="navbar">
+                <a href="#homepage" class="home-btn" aria-label="Go to Homepage"><i class="fas fa-home"></i></a>
+                <a href="#home" class="logo">Sunita</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#certifications">Certificate</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="right-nav">
+                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle Light/Dark Mode">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    <div class="menu-toggle" id="menu-toggle">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <h1>Hello, I'm Sunita</h1>
+                <h2>Frontend Developer | Web Developer</h2>
+                <p>
+                    Passionate about building beautiful and functional web applications.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn">Hire Me</a>
+                    <!-- Yahaan apne resume ka link daalein. Aap resume ko Google Drive ya Dropbox jaisi kisi service par upload kar sakte hain aur yahaan uska sharable link daal sakte hain. -->
+                    <a href="https://drive.google.com/file/d/1Z5AgF4xkfwAuu31q_8LQiAopaI0uIya4/view?usp=sharing" class="btn btn-secondary" download>Download Resume</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <!-- इमेज एनीमेशन के लिए ID जोड़ी गई है -->
+                <img id="profile-image-animated" src="image/image.jpg" alt="Sunita's Profile Picture">
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="about-section animated-section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.YxO5j0t13WqfgVIq0k0WbQAAAA?r=0&pid=Api" alt="About Me Image">
+                </div>
+                <div class="about-text">
+                    <p>
+                        I'm a passionate and dedicated Frontend Developer from NavGurukul. I specialize in creating
+                        responsive, user-friendly, and dynamic web experiences. My journey in tech started with a love
+                        for problem-solving and a desire to build things that people can interact with.
+                    </p>
+                    <p>
+                        In my free time, I enjoy reading, volunteering, and exploring new technologies. I believe in
+                        continuous learning and I'm always looking for new challenges to grow my skills.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section animated-section">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card html">
+                    <h3>HTML</h3>
+                </div>
+                <div class="skill-card css">
+                    <h3>CSS</h3>
+                </div>
+                <div class="skill-card javascript">
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-card react">
+                    <h3>Git & GitHub</h3>
+                </div>
+                <div class="skill-card mysql">
+                    <h3>Deployment</h3>
+                </div>
+                <div class="skill-card mongodb">
+                    <h3>APIs</h3>
+                </div>
+                <!-- Soft Skills -->
+                <div class="skill-card timemanagement">
+                    <h3>Time Management</h3>
+                </div>
+                <div class="skill-card problemsolving">
+                    <h3>Problem Solving</h3>
+                </div>
+                <div class="skill-card communication">
+                    <h3>Communication</h3>
+                </div>
+                <div class="skill-card leadership">
+                    <h3>Leadership</h3>
+                </div>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="education-section animated-section">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Arts</h3>
+                        <p>Hindi Honours</p>
+                        <span>2019 - 2022</span>
+                        <p>Completed my undergraduate degree from JRS College Munger university.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>NavGurukul   Program</h3>
+                        <p>Web Development</p>
+        <span>2024 - Present</span>
+    <p>I am currently pursuing a Web Development Program at NavGurukul, 
+  focusing on full-stack technologies such as HTML, CSS, JavaScript, React, Databases, and Backend, 
+  along with soft skills like teamwork, communication, and problem-solving.
+</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects-section animated-section">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: Age Calculator -->
+                <div class="project-card">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.u_0GmbVWPU0ZOGXfurdZeQHaE8?r=0&pid=Api"
+                        alt="Age Calculator Project">
+                    <h3>Age Calculator</h3>
+                    <p>A simple yet effective web application that calculates a person's age based on their birth date.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/Sunitakumari24" class="btn btn-sm">View Code</a>
+                        <a href="https://mellifluous-tulumba-3f7b77.netlify.app/" class="btn btn-sm">Live Demo</a>
+                    </div>
+                </div>
+                <!-- Project 2: Quiz App -->
+                <div class="project-card">
+                    <img src="https://play-lh.googleusercontent.com/ufUbkCljrqOIvGXGfGXeEPujwyqXmiojSedi7U4DPXAyl4yw619Bd3hv1AetfAgfvg"
+                        alt="Quiz App Project">
+                    <h3>Quiz App</h3>
+                    <p>An interactive quiz application with multiple-choice questions, scoring, and a clean interface.
+                    </p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/Sunitakumari24" class="btn btn-sm">View Code</a>
+                        <a href="https://incandescent-faloodeh-cc1ae7.netlify.app/" class="btn btn-sm">Live Demo</a>
+                    </div>
+                </div>
+                <!-- Project 3: Digital Clock -->
+                <div class="project-card">
+                    <img src="https://digitalclock.app/templates/assets/img/preview.png" alt="Quiz App Project">
+                    <h3>Digital Clock</h3>
+                    <p>A real-time digital clock built with HTML, CSS, and JavaScript. It displays the current time
+                        dynamically and includes an alarm feature for better interactivity.</p>
+                    <div class="project-buttons">
+                        <a href="https://github.com/Sunitakumari24" class="btn btn-sm">View Code</a>
+                        <a href="https://digitll.netlify.app/" class="btn btn-sm">Live Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="experience-section animated-section">
+            <h2 class="section-title">Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                <h3>NavGurukul Foundation Social Welfare</h3>
+            <p>Student</p>
+        <span>2024 - Present</span>
+        <p>Gained proficiency in HTML, CSS, JavaScript, Git/GitHub, and built soft skills in teamwork, leadership, and problem-solving.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>i-Saksham Learning Foundation</h3>
+                        <p>Fellowship</p>
+                        <span>2020 - 2022</span>
+                        <p>Taught 120 students (Grades 1–5), engaged 100 parents, and gained skills in teaching, leadership, and teamwork.</p>
+                    </div>
+                </div>
+                 <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Educate Girls NGO</h3>
+                        <p>Internship</p>
+                        <span>2023 - 2024</span>
+                        <p>Improved girls’ enrollment and retention (ages 7–14) through door-to-door surveys and community awareness programs in rural schools.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    
+
+        <!-- Certifications Section -->
+        <section id="certifications" class="certifications-section animated-section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="timeline">
+                <!-- Certification 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Version Control Certificate</h3>
+                        <p>Meta (via Coursera) | 2024</p>
+                        <a href="https://www.coursera.org/account/accomplishments/certificate/FQQHI13MFUAU" class="btn btn-sm" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <!-- Certification 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Introducing Generative AI with AWS</h3>
+                        <p>AWS Training & Certification | 2024</p>
+                        <a href="https://www.udacity.com/certificate/e/ab7ced08-5950-11f0-b57c-5b0a43b32c2a" class="btn btn-sm" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+                <!-- Certification 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>Git & GitHub Certificate</h3>
+                        <p>Institution: Coursera | 2024</p>
+                        <a href="https://www.coursera.org/account/accomplishments/certificate/1X7PYO76WUOE" class="btn btn-sm" target="_blank">View Certificate</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section animated-section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <form class="contact-form" action="mailto:sunita@example.com" method="POST" enctype="text/plain">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                    <button type="submit" class="btn">Send Message</button>
+                </form>
+                <div class="social-links">
+                    <a href="https://github.com/Sunitakumari24" target="_blank" class="social-icon"><i class="fab fa-github"></i> GitHub</a>
+                    <a href="https://www.linkedin.com/in/sunita-kumari-b958a633a/details/certifications/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="https://mail.google.com/mail/u/0/#inbox" class="social-icon"><i class="fas fa-envelope"></i> Email</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Sunita. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const viewMoreBtn = document.getElementById('viewMoreBtn');
+            const homepage = document.getElementById('homepage');
+            const mainContent = document.getElementById('main-content');
+            const themeToggle = document.getElementById('theme-toggle');
+            const menuToggle = document.getElementById('menu-toggle');
+            const navLinks = document.querySelector('.nav-links');
+            const homeBtn = document.querySelector('.home-btn');
+            const allNavLinks = document.querySelectorAll('a[href^="#"]'); 
+            const animatedSections = document.querySelectorAll('.animated-section');
+            const aboutContainer = document.querySelector('.about-container');
+
+            // Toggle between homepage and main content
+            viewMoreBtn.addEventListener('click', () => {
+                homepage.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                document.body.style.backgroundColor = 'var(--background-color)';
+                
+                // Scroll to the top of the main content
+                setTimeout(() => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                }, 10);
+            });
+
+            // Smooth scroll for nav links and also handle home button
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const targetId = link.getAttribute('href');
+                    
+                    if (targetId === '#homepage') {
+                        // If it's the home button, show the homepage and hide main content
+                        homepage.style.display = 'flex';
+                        mainContent.classList.add('hidden');
+                        document.body.style.backgroundColor = '#1a1a1a'; // Set body background to homepage color
+                        window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top
+                    } else {
+                        // For other links, just scroll
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                    
+                    // Hide mobile menu after clicking a link
+                    if (navLinks.classList.contains('active')) {
+                        navLinks.classList.remove('active');
+                    }
+                });
+            });
+
+            // Theme toggle functionality
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                const isDarkMode = document.body.classList.contains('dark-mode');
+                themeToggle.innerHTML = isDarkMode ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
+            });
+
+            // Load saved theme from localStorage
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+
+            // Mobile menu toggle
+            menuToggle.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+
+            // IntersectionObserver for section animations
+            const observerOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: '0px'
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate');
+                        // अगर यह अबाउट सेक्शन है, तो उसके कंटेनर को एनिमेट करें
+                        if (entry.target.id === 'about') {
+                            aboutContainer.classList.add('animate');
+                        }
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            animatedSections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // --- इमेज एनीमेशन के लिए नया कोड ---
+            const animatedImage = document.getElementById('profile-image-animated');
+            const images = [
+                'image/image.jpg',
+                'image/image.jpg',
+    
+            ];
+            let currentImageIndex = 0;
+
+            setInterval(() => {
+                // इमेज बदलने से पहले हल्का सा फेड-आउट प्रभाव (fade-out effect)
+                animatedImage.style.opacity = '0';
+                setTimeout(() => {
+                    currentImageIndex = (currentImageIndex + 1) % images.length;
+                    animatedImage.src = images[currentImageIndex];
+                    // इमेज बदलने के बाद फेड-इन प्रभाव (fade-in effect)
+                    animatedImage.style.opacity = '1';
+                }, 500); // 0.5 सेकंड का इंतज़ार
+            }, 3000); // हर 3 सेकंड में इमेज बदलें
+            // --- नया कोड यहाँ समाप्त होता है ---
+        });
+    </script>
+</body>
+
+</html>
